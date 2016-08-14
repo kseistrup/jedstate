@@ -1,0 +1,113 @@
+.\"                                      Hey, EMACS: -*- nroff -*-
+.\" First parameter, NAME, should be all caps
+.\" Second parameter, SECTION, should be 1-8, maybe w/ subsection
+.\" other parameters are allowed: see man(7), man(1)
+.TH JEDSTATE 1 "Februar 24, 2001"
+.\" Please adjust this date whenever revising the manpage.
+.\"
+.\" Some roff macros, for reference:
+.\" .nh        disable hyphenation
+.\" .hy        enable hyphenation
+.\" .ad l      left justify
+.\" .ad b      justify to both left and right margins
+.\" .nf        disable filling
+.\" .fi        enable filling
+.\" .br        insert line break
+.\" .sp <n>    insert n+1 empty lines
+.\" for manpage-specific macros, see man(7)
+.SH NAME
+jedstate \- an add-on for the text-editor \fIjed\fP
+.SH SYNOPSIS
+
+Usually you won't have to invoke \fBjedstate\fP manually.
+For sample crontab entries to maintain your database see the
+\fBExamples\fP section.
+.\".B jedstate
+.\".RI [ options ] " files" ...
+.\".br
+.\".B bar
+.\".RI [ options ] " files" ...
+.SH DESCRIPTION
+This manual page documents briefly the
+\fBjedstate\fP command.
+This manual page was written for the Debian GNU/Linux distribution
+because the original program does not have a manual page.
+.\"Instead, it has documentation in the GNU Info format; see below.
+.PP
+.\" TeX users may be more comfortable with the \fB<whatever>\fP and
+.\" \fI<whatever>\fP escape sequences to invode bold face and italics,
+.\" respectively.
+\fBjedstate\fP is some sort of an extended mind for John E. Davis' splendid text
+editor jed. Using jedstate and jed's startup and exit hooks as a glue jed
+"remembers" the position of the cursor for all visited files and will
+automagically jump to that position whenever the file is revisited.  The
+database is purgeable based on a time-since-last-view criterion.
+
+.SH OPTIONS
+These programs follow the usual GNU command line syntax, with long
+options starting with two dashes (`-').
+A summary of options is included below.
+.\"For a complete description, see the Info files.
+.TP
+.B \-xN \-\-example=[N]
+print sample startup/exit hooks (1|2)
+.TP
+.B \-h \-\-help
+Show summary of options.
+.TP
+.B \-pAGE \-\-purge=AGE
+Purge database entries older than AGE
+.sp
+Where AGE is age-since-last-view in seconds unless appended with `Y' (years),
+`W' (weeks), `D' (days), `H' (hours) or `M' (minutes), e.g., "2w" (2 weeks) or
+"19d" (19 days).
+.br
+Be careful not to overflow an int.  If AGE is negative no
+purging will take place.  If age is zero the database will be cleared
+(this is useful when installing jedstate for the first time)!
+.br
+To purge only non-existant files set AGE=0x7FFFFFFF or some other large number.
+.TP
+.B \-q \-\-quiet
+Suppress normal output
+.TP
+.B \-Q \-\-really-quiet
+Suppress even error messages
+.TP
+.B  \-V \-\-version
+Show version of program.
+.SH EXAMPLES
+
+Sample crontab entries for database maintenance:
+
+# Keep four weeks' worth of data
+.br
+02 00  *  *  *  /usr/bin/jedstate --purge=4w
+.sp
+# Keep four weeks' worth of data and shut your mouth
+.br
+02 00  *  *  *  /usr/bin/jedstate --purge=4w -q
+.sp
+# Purge only non-existant files
+.br
+02 00  *  *  *  /usr/bin/jedstate --purge=0x7fffffff
+
+# Reset database every Monday
+.br
+02 00  *  *  1  /usr/bin/jedstate --purge=0
+
+# Don't do anything
+.br
+02 00  *  *  *  /usr/bin/jedstate --purge=-1
+
+.SH SEE ALSO
+.BR jed (1).
+.br
+.\"The programs are documented fully by
+.\".IR "The Rise and Fall of a Fooish Bar" ,
+.\"available via the Info system.
+.SH AUTHOR
+Klaus Alexander Seistrup <kseis@magnetic-ink.dk>
+
+This manual page was written by Michael Hummel <mh@seitung.net>,
+for the Debian GNU/Linux system (but may be used by others).

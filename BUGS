@@ -1,0 +1,7 @@
+# BUGS file for jedstate
+
+21.Jul.1999:	Jedstate assumes that ints are 32-bit entities, this affects
+		the purging routine.  You may have to do some typecasting or
+		even rewriting of the code if your machine has a 64-bit OS.
+
+# EoF

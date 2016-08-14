@@ -1,0 +1,15 @@
+# HISTORY file for jedstate
+
+03.Mar.2001:	0.5.2
+	Jedstate is presumably making it into Debian GNU/Linux, kindly
+	maintained my Michael Hummel.
+
+22.Jul.1999:	0.5.1
+	Years have passed.  Recently mkjedstate and cleanjedstate were merged
+	into one single program.  I think it's about time for the first public
+	release... :-)
+
+20.Jul.1996:	0.0.1
+	Beginning of history.  First versions of mkjedstate and cleanjedstate.
+
+# EOF

@@ -1,0 +1,37 @@
+# INSTALL file for jedstate
+
+How to install jedstate, in one easy lesson:
+============================================
+
+  1)  Compile jedstate, possibly tweaking the Makefile first.
+
+  2)  Insert the hook samples into your ~/.jedrc file.  If you do not
+      already use the startup/exit hooks you may simply copy one of the
+      samples as is, or even do a
+
+        $ jedstate --example >> ~/.jedrc
+
+      from a command line.  The two included samples are identical,
+      except one is in RPN.
+
+  3)  Put jedstate somewhere in your PATH, e.g. in the /usr/local/bin/
+      directory, then cd to that directory and
+
+        # ln -s jedstate setjedstate
+        # ln -s jedstate getjedstate
+
+      i.e., make soft (or hard if you so wish) links from jedstate to
+      the two files setjedstate and getjedstate.  If your OS doesn't
+      support links you may have to do a couple of plain copies.
+
+  4)  Initialize the database by doing a "jedstate --purge=0" from a
+      command line.
+
+  5)  You're all set.  You may, however, want to insert a line in your
+      crontab file for easy maintenance of the database -- please take
+      a look at the included crontab sample (RedHat users may dump the
+      jedstate.cron file into the /etc/cron.daily [or whatever] dir).
+
+  6)  Off you go now! :-)
+
+# EoF

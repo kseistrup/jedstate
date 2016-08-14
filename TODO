@@ -1,0 +1,17 @@
+# TODO file for jedstate
+
+22.Jul.1999:	Take a look at the 32-bit dependancy issue.
+
+		Remove alloca() dependancy.
+
+		Write a strrchr() function for those who don't have it.
+
+		Write a decent manual...
+
+21.Jul.1999:	Maybe save file mode along with line and column?  Could come
+		in handy for those files with non-standard extensions where
+		you enter the file mode manually.  Is it worth the hazzle?
+
+20.Jul.1999:	GNU configure?
+
+# EoF

@@ -1,0 +1,53 @@
+## -*- sh -*-
+###############################################################################
+## Sample crontab entries for jedstate
+###############################################################################
+## Copyright © 1999 Klaus Alexander Seistrup @ Magnetic Ink, Copenhagen, DK
+##
+##   Author: Klaus Alexander Seistrup
+##  Created: Wednesday, 21st July 1999
+## @(#) $Id: jedstate.crontab,v 1.2 1999/07/21 18:43:51 kas Exp $
+##
+## This program is free software; you can redistribute it and/or modify it
+## under the terms of the GNU General Public License as published by the Free
+## Software Foundation; either version 2 of the License, or (at your option)
+## any later version.
+##
+## This program is distributed in the hope that it will be useful, but with-
+## out any warranty; without even the implied warranty of merchantability or
+## fitness for a particular purpose.  See the GNU General Public License for
+## more details.
+##
+## You should have received a copy of the GNU General Public License along
+## with this program; if not, please write to the Free Software Foundation,
+## Inc., 59 Temple Place, Suite 330, Boston MA 02111-1307, USA.
+###############################################################################
+
+SHELL=/bin/sh
+PATH=$HOME/bin:/bin:/usr/bin:/usr/local/bin
+MAILTO=put-your-login-name-here
+
+#+------------------- Minute:       0 - 59
+#|  +---------------- Hour:         0 - 23
+#|  |  +------------- Day of Month: 0 - 31
+#|  |  |  +---------- Month:        0 - 12 (or names:  3-letter abbrev.)
+#|  |  |  |  +------- Day of Week:  0 -  7 (0 or 7 is Sun, or use names)
+#|  |  |  |  |
+#V  V  V  V  V
+
+# Keep four weeks' worth of data
+02 00  *  *  *  jedstate --purge=4w
+
+# Keep four weeks' worth of data and shut your mouth
+#02 00  *  *  *  jedstate --purge=4w -q
+
+# Purge only non-existant files
+#02 00  *  *  *  jedstate --purge=0x7fffffff
+
+# Reset database every Monday
+#02 00  *  *  1  jedstate --purge=0
+
+# Don't do anything
+#02 00  *  *  *  jedstate --purge=-1
+
+## EOF ########################################################################

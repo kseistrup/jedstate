@@ -1,0 +1,26 @@
+Begin3
+Title:          JedState
+Version:        0.5.2
+Entered-date:   03MAR01
+Description:	Jedstate is some sort of an extended mind for John E. Davis'
+		splendid text editor jed.  Using jedstate and jed's startup
+		and exit hooks as a glue jed "remembers" the position of the
+		cursor for all visited files and will automagically jump to
+		that position whenever the file is revisited.  The database
+		is purgeable based on a time-since-last-view criterion.
+		Comes with two sample hooks for easy installation.
+Keywords:       JED, S-Lang, hooks, GDBM, database, editor, Linux, UNIX
+Author:         kseis@magnetic-ink.dk (Klaus Alexander Seistrup)
+Maintained-by:  Klaus Alexander Seistrup <kseis@magnetic-ink.dk>
+WWW-site:	Magnetic Ink, Denmark <URL:http://www.magnetic-ink.dk/>
+Primary-site:	metalab.unc.edu:/pub/Linux/apps/editors/
+			jedstate-0.5.2.tar.gz	~16 kbytes
+			jedstate-0.5.2.lsm	 ~1 kbyte
+Original-site:	metalab.unc.edu:/pub/Linux/apps/editors/
+Alternate-site:	<URL:ftp://magnetic-ink.dk/pub/>
+Platforms:	Should compile on most unices with GDBM and alloca(), although
+		it has only been tested on Linux.  It should be fairly easy to
+		rewrite the program to using another dbm if you so wish.
+Checked-date:	
+Copying-policy: GNU GPL
+End
